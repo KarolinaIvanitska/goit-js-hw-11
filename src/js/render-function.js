@@ -26,12 +26,14 @@ export function imageTemplate({
       height = "220"
     />
   </a>
-  <p> largeImageURL: "${largeImageURL}"</p>
-  <p> tags: "${tags}"</p>
-      <p>likes: "${likes}"</p>
-      <p> views: "${views}"</p>
-      <p> comments"${comments}"</p>
-      <p> downloads: "${downloads}"</p>
+  <p class="large-image"> largeImageURL: "${largeImageURL}"</p>
+  <div class ="container-images">  
+  <p class="tags"> <span class="text">tags</span> "${tags}"</p>
+      <p class = "likes"><span class="text"> likes</span> "${likes}"</p>
+      <p class="likes"> <span class="text">views</span>"${views}"</p>
+      <p class="likes"> <span class="text">comments</span>"${comments}"</p>
+      <p class="likes"> <span class="text">downloads</span>"${downloads}"</p>
+      </div>
 </li>`;
 }
 
