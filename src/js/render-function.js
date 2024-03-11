@@ -1,23 +1,12 @@
-function displayImages(images) {
-  galleryList.innerHTML = '';
+import SimpleLightbox from 'simplelightbox';
 
-  if (images.length === 0) {
-    iziToast.info({
-      title: 'Info',
-      message:
-        'Sorry, there are no images matching your search query. Please try again.',
-    });
-    return;
-  }
+export const lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
+const imageEl = document.querySelector('.gallery');
 
-  const markup = createMarkup(images);
-  galleryList.innerHTML = markup;
-
-  lightbox.refresh();
-  hideLoader();
-}
-
-export function imagesTemplate({
+export function imageTemplate({
   webformatURL,
   largeImageUrl,
   tags,
@@ -28,31 +17,32 @@ export function imagesTemplate({
 }) {
   return ` 
   <li class="gallery-item">
-  <a class="gallery-link" href="${largeImageURL}">
+  <a class="gallery-link" href="${largeImageUrl}">
     <img
       class="gallery-image"
       src="${webformatURL}"
       alt="${tags}"
       width="360"
+      height = "220"
     />
   </a>
-  <div class="thumb-block">
-    <div class="block">
-      <h2 class="title">Likes</h2>
-      <p class="amount">${likes}</p>
-    </div>
-    <div class="block">
-      <h2 class="title">Views</h2>
-      <p class="amount">${views}</p>
-    </div>
-    <div class="block">
-      <h2 class="title">Comments</h2>
-      <p class="amount">${comments}</p>
-    </div>
-    <div class="block">
-      <h2 class="title">Downloads</h2>
-      <p class="amount">${downloads}</p>
-    </div>
-  </div>
+  <p> largeImageURL: "${largeImageUrl}"</p>
+  <p> tags: "${tags}"</p>
+      <p>likes: "${likes}"</p>
+      <p> views: "${views}"</p>
+      <p> comments"${comments}"</p>
+      <p> downloads: "${downloads}"</p>
 </li>`;
+}
+
+export function imagesTemplate(arr) {
+  return arr.map(imageTemplate).join('');
+}
+
+export function renderMarkup(image, arr) {
+  imageEl.insertAdjacentHTML('beforeend', imagesTemplate(arr));
+}
+
+export function refreshLightBox() {
+  lightbox.refresh;
 }
