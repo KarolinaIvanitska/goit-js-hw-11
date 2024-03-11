@@ -8,7 +8,7 @@ const imageEl = document.querySelector('.gallery');
 
 export function imageTemplate({
   webformatURL,
-  largeImageUrl,
+  largeImageURL,
   tags,
   likes,
   views,
@@ -17,7 +17,7 @@ export function imageTemplate({
 }) {
   return ` 
   <li class="gallery-item">
-  <a class="gallery-link" href="${largeImageUrl}">
+  <a class="gallery-link" href="${largeImageURL}">
     <img
       class="gallery-image"
       src="${webformatURL}"
@@ -26,7 +26,7 @@ export function imageTemplate({
       height = "220"
     />
   </a>
-  <p> largeImageURL: "${largeImageUrl}"</p>
+  <p> largeImageURL: "${largeImageURL}"</p>
   <p> tags: "${tags}"</p>
       <p>likes: "${likes}"</p>
       <p> views: "${views}"</p>
