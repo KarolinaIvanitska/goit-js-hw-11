@@ -49,5 +49,5 @@ export function renderMarkup(image, arr) {
 }
 
 export function refreshLightBox() {
-  lightbox.refresh;
+  lightbox.refresh();
 }
