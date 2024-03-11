@@ -1,9 +1,12 @@
 import SimpleLightbox from 'simplelightbox';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
 
 export const lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
   captionDelay: 250,
 });
+
 const imageEl = document.querySelector('.gallery');
 
 export function imageTemplate({

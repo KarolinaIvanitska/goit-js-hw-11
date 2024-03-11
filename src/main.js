@@ -40,7 +40,6 @@ formElem.addEventListener('submit', e => {
             'Sorry, there are no images matching your search query. Please try again!',
           position: 'topRight',
         });
-        return;
       }
       renderMarkup(imageEl, data.hits);
       refreshLightBox();
